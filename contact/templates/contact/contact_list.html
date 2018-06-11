@@ -1,0 +1,12 @@
+<div>
+    <h1><a href="/">Contact App</a></h1>
+</div>
+
+<div>There are {{count}} entries in your contact list.</div>
+
+{% for person in persons %}
+    <div>
+        <h1><a href="{% url 'contact:contact_detail' person.id %}">{{ person.full_name }}</a></h1>
+        <p>{{ person.text|linebreaksbr }}</p>
+    </div>
+{% endfor %}
