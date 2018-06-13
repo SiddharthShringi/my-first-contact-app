@@ -17,12 +17,11 @@ def contact_new(request):
     if request.method == 'POST':
         form = PersonForm(request.POST)
         if form.is_valid():
-            person = form.save(commit=True)
-            person.save()
+            form.save()
             return redirect('/')
     else:
         form = PersonForm()
-    return render(request, 'contact/contact_new.html', {'form': form})
+    return render(request, 'contact/contact_edit.html', {'form': form})
 
 
 def contact_edit(request, pk):
@@ -34,4 +33,4 @@ def contact_edit(request, pk):
             return redirect('/person/' + str(person.pk))
     else:
         form = PersonForm(instance=person)
-    return render(request, 'contact/contact_edit.html', {'form': form, 'person': person})
+    return render(request, 'contact/contact_edit.html', {'form': form})
