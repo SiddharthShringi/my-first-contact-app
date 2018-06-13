@@ -1,6 +1,5 @@
-<form action="{% url 'contact:contact_edit' pk=person.id %}" method="post">
+<form action="/person/new" method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="Save" />
 </form>
-

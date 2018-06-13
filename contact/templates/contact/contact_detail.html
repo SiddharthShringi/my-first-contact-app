@@ -3,3 +3,5 @@
     <p>Email: {{ person.email }}</p>
     <p>Phone: {{ person.phone }}</p>
 </div>
+
+<a href="{% url 'contact:contact_edit' person.id %}">Edit</a>

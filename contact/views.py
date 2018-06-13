@@ -22,4 +22,16 @@ def contact_new(request):
             return redirect('/')
     else:
         form = PersonForm()
-    return render(request, 'contact/contact_edit.html', {'form': form})
+    return render(request, 'contact/contact_new.html', {'form': form})
+
+
+def contact_edit(request, pk):
+    person = get_object_or_404(Person, pk=pk)
+    if request.method == 'POST':
+        form = PersonForm(request.POST, instance=person)
+        if form.is_valid():
+            form.save()
+            return redirect('/person/' + str(person.pk))
+    else:
+        form = PersonForm(instance=person)
+    return render(request, 'contact/contact_edit.html', {'form': form, 'person': person})
