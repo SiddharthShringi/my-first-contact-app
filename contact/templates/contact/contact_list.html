@@ -1,14 +1,13 @@
-<div>
-    <h1><a href="/">Contact App</a></h1>
-</div>
+{% extends 'contact/base.html' %}
 
-<div>There are {{count}} entries in your contact list.</div>
-
-{% for person in persons %}
-    <div>
-        <h1><a href="{% url 'contact:contact_detail' person.id %}">{{ person.full_name }}</a></h1>
-        <p>{{ person.text|linebreaksbr }}</p>
+{% block content %}
+    <div class="card" style="width: 18rem;">
+        <ul class="list-group list-group-flush">
+            {% for person in persons %}
+                <div>
+                    <li class="list-group-item"><a href="{% url 'contact:contact_detail' person.id %}">{{ person.full_name }}</a></li>
+                </div>
+            {% endfor %}
+        </ul>
     </div>
-{% endfor %}
-
-<a href="/person/new">Add new contact</a>
+{% endblock %}
