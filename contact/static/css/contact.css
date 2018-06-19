@@ -23,3 +23,7 @@ font-size: 50px;
 color: #FFFFFF;
 }
 
+.form-group label {
+    color: white;
+}
+

@@ -1,6 +1,10 @@
+{% extends 'contact/base.html' %}
+{% block content %}
 <form method="post">
     {% csrf_token %}
+    <div class="form-group">
     {{ form.as_p }}
-    <input type="submit" value="Save" />
+    </div>
+    <input class="btn btn-primary" type="submit" value="Save" />
 </form>
-
+{% endblock %}
